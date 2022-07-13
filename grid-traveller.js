@@ -2,11 +2,12 @@
 //Only going down and to the right
 
 const gridTraveller = (m, n, memo = {}) => {
-    if ((n, m) in memo) return memo[(n, m)];
+    const key = m + ',' + n;
+    if (key in memo) return memo[key];
     if (n === 1 && m === 1) return 1;
     if (n === 0 || m === 0) return 0;
-    memo[(n, m)] = gridTraveller(m - 1, n, memo) + gridTraveller(m, n - 1, memo);
-    return memo[(n, m)]
+    memo[key] = gridTraveller(m - 1, n, memo) + gridTraveller(m, n - 1, memo);
+    return memo[key]
 };
 
 
